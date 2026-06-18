@@ -16,15 +16,15 @@ then
 fi
 
 # [TASK 1]
-targetDirectory=
-destinationDirectory=
+targetDirectory="./dest_dir"
+destinationDirectory="./orig_dir"
 
 # [TASK 2]
-echo ""
-echo ""
+echo "$targetDirectory"
+echo "$destinationDirectory"
 
 # [TASK 3]
-currentTS=`date +%s`
+currentTS="date +%s"
 
 # [TASK 4]
 backupFileName="backup-[$currentTS].tar.gz"
@@ -37,11 +37,11 @@ backupFileName="backup-[$currentTS].tar.gz"
 # To make things easier, we will define some useful variables...
 
 # [TASK 5]
-origAbsPath=`/home/project/ibm_backup/orig_dir`
+origAbsPath="/home/project/ibm_backup/orig_dir"
 
 # [TASK 6]
 cd # <-
-destDirAbsPath=`/home/project/ibm_backup/dest_dir`
+destDirAbsPath="/home/project/ibm_backup/dest_dir"
 
 # [TASK 7]
 cd "$origAbsPath" # <-
