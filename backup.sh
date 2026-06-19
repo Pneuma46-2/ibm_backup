@@ -16,8 +16,8 @@ then
 fi
 
 # [TASK 1]
-targetDirectory="./dest_dir"
-destinationDirectory="./orig_dir"
+targetDirectory=$1
+destinationDirectory=$2
 
 # [TASK 2]
 echo "$targetDirectory"
@@ -37,11 +37,11 @@ backupFileName="backup-[$currentTS].tar.gz"
 # To make things easier, we will define some useful variables...
 
 # [TASK 5]
-origAbsPath="/home/project/ibm_backup/orig_dir"
+origAbsPath="/home/project/ibm_backup"
 
 # [TASK 6]
 cd # <-
-destDirAbsPath="/home/project/ibm_backup/dest_dir"
+destDirAbsPath="/home/project/ibm_backup/dest_dir" || exit
 
 # [TASK 7]
 cd "$origAbsPath" # <-
@@ -55,9 +55,10 @@ declare -a toBackup
 for file in "$origAbsPath/*" # [TASK 9]
 do
   # [TASK 10]
-  if (())
-  then
+  if ((date -r $file +%s - $yesterdayTS))<24*60*60:
+  then toBackup+=($file)
     # [TASK 11]
+
   fi
 done
 
